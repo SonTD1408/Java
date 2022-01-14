@@ -19,7 +19,7 @@ public class AnnotationExample {
             field.setAccessible(true);
             Object value = field.get(usr);
             System.out.println("field value: "+dbField.type());
-            System.out.println("Is primary key: "+dbField.type());
+            System.out.println("Is primary key: "+dbField.isPrimaryKey());
         }
     }
 }
