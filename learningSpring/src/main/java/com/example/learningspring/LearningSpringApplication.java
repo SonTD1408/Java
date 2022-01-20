@@ -3,6 +3,7 @@ package com.example.learningspring;
 import com.example.learningspring.bean.*;
 import com.example.learningspring.config.AppConfig;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -41,5 +42,7 @@ public class LearningSpringApplication {
 //        prototypeScopeBean1.printProperty();
 //        prototypeScopeBean2.printProperty();
 //        còn cái này print dương dủng dỉnh và dương zung zinh
+
+        ((ConfigurableApplicationContext) context).close();
     }
 }
