@@ -31,13 +31,15 @@ public class LearningSpringApplication {
 
 //        singletonScopeBean1.printMs();
 //        singletonScopeBean2.printMs();
+//        Cái này sẽ print 2 lần dương zui zẻ
 //  test prototype scope
         PrototypeScopeBean prototypeScopeBean1 = (PrototypeScopeBean) context.getBean("prototypeBean");
         prototypeScopeBean1.setMs("dương dủng dỉnh");
         PrototypeScopeBean prototypeScopeBean2 = (PrototypeScopeBean) context.getBean("prototypeBean");
         prototypeScopeBean2.setMs("dương zung zinh");
 
-        prototypeScopeBean1.printProperty();
-        prototypeScopeBean2.printProperty();
+//        prototypeScopeBean1.printProperty();
+//        prototypeScopeBean2.printProperty();
+//        còn cái này print dương dủng dỉnh và dương zung zinh
     }
 }
