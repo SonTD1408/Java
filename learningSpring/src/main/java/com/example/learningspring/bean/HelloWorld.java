@@ -14,17 +14,7 @@ public class HelloWorld {
         this.message = message;
     }
 
-    public void printProperty(){
+    public void printProperty() {
         System.out.println(message);
     }
-
-//    @PostConstruct
-//    public void initIt(){
-//        System.out.println("sau khi khơi tạo message có giá trị: "+message);
-//
-//    }
-//    @PreDestroy
-//    public void cleanUp(){
-//        System.out.println("chuẩn bị destroy mọi ng tránh ra!");
-//    }
 }

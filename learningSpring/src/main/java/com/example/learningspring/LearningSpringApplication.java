@@ -43,6 +43,9 @@ public class LearningSpringApplication {
 //        prototypeScopeBean2.printProperty();
 //        còn cái này print dương dủng dỉnh và dương zung zinh
 
+//  test component scan
+        TestComponent2 testComponent2 = (TestComponent2) context.getBean("component2");
+        System.out.println(testComponent2);
         ((ConfigurableApplicationContext) context).close();
     }
 }
