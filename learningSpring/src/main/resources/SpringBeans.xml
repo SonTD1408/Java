@@ -6,22 +6,21 @@
         <property name="name" value="dương"/>
         <property name="thisIsAProperty" value="cô nương"/>
     </bean>
-
     <bean id="baseBeanForInjection" class="com.example.learningspring.bean.BaseBeanForInjection">
         <property name="name">
             <value>dương cô nương</value>
         </property>
     </bean>
-
     <bean id="diWithSetter" class="com.example.learningspring.bean.DIWithSetter">
         <property name="baseBeanForInjection">
             <ref bean="baseBeanForInjection"/>
         </property>
     </bean>
-
     <bean id="diWithConstructor" class="com.example.learningspring.bean.DIWithConstructor">
         <constructor-arg>
             <bean class="com.example.learningspring.bean.BaseBeanForInjection"/>
         </constructor-arg>
     </bean>
+    <bean id="singletonBean" class="com.example.learningspring.bean.SingletonScopeBean"/>
+    <bean id="prototypeBean" class="com.example.learningspring.bean.PrototypeScopeBean" scope="prototype"/>
 </beans>

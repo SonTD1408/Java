@@ -1,9 +1,6 @@
 package com.example.learningspring;
 
-import com.example.learningspring.bean.BaseBeanForInjection;
-import com.example.learningspring.bean.BeanWithXml;
-import com.example.learningspring.bean.HelloWorld;
-import com.example.learningspring.bean.TestConfigImportA;
+import com.example.learningspring.bean.*;
 import com.example.learningspring.config.AppConfig;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -24,6 +21,23 @@ public class LearningSpringApplication {
 //        firstBean.printProperty();
 //  inject value
         BaseBeanForInjection baseBeanForInjection = (BaseBeanForInjection) context.getBean("baseBeanForInjection");
-        baseBeanForInjection.printProperty();
+//        baseBeanForInjection.printProperty();
+
+//  test singleton scope
+        SingletonScopeBean singletonScopeBean1 = (SingletonScopeBean) context.getBean("singletonBean");
+        singletonScopeBean1.setMs("dương cô nương");
+        SingletonScopeBean singletonScopeBean2 = (SingletonScopeBean) context.getBean("singletonBean");
+        singletonScopeBean2.setMs("dương zui zẻ");
+
+//        singletonScopeBean1.printMs();
+//        singletonScopeBean2.printMs();
+//  test prototype scope
+        PrototypeScopeBean prototypeScopeBean1 = (PrototypeScopeBean) context.getBean("prototypeBean");
+        prototypeScopeBean1.setMs("dương dủng dỉnh");
+        PrototypeScopeBean prototypeScopeBean2 = (PrototypeScopeBean) context.getBean("prototypeBean");
+        prototypeScopeBean2.setMs("dương zung zinh");
+
+        prototypeScopeBean1.printProperty();
+        prototypeScopeBean2.printProperty();
     }
 }
