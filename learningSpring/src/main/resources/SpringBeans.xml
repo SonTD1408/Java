@@ -6,4 +6,12 @@
         <property name="name" value="dương"/>
         <property name="thisIsAProperty" value="cô nương"/>
     </bean>
+
+    <bean id="BaseBeanForInjection" class="com.example.learningspring.bean.BaseBeanForInjection"/>
+
+    <bean id="DIWithSetter" class="com.example.learningspring.bean.DIWithSetter">
+        <property name="baseBeanForInjection">
+            <ref bean="BaseBeanForInjection"/>
+        </property>
+    </bean>
 </beans>

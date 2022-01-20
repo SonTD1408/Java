@@ -15,11 +15,12 @@ public class LearningSpringApplication {
         HelloWorld helloWorld = (HelloWorld) annotationContext.getBean("configHelloWorld");
         TestConfigImportA aConfig = (TestConfigImportA) annotationContext.getBean("configA");
 
-        helloWorld.printProperty();
-        aConfig.printProperty();
+//        helloWorld.printProperty();
+//        aConfig.printProperty();
 //  create bean with xml
         ApplicationContext context = new ClassPathXmlApplicationContext("SpringBeans.xml");
         BeanWithXml firstBean = (BeanWithXml) context.getBean("firstBean");
-        firstBean.printProperty();
+//        firstBean.printProperty();
+        
     }
 }
