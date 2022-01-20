@@ -21,6 +21,6 @@ public class LearningSpringApplication {
         ApplicationContext context = new ClassPathXmlApplicationContext("SpringBeans.xml");
         BeanWithXml firstBean = (BeanWithXml) context.getBean("firstBean");
 //        firstBean.printProperty();
-        
+
     }
 }
