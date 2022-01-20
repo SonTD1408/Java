@@ -1,5 +1,6 @@
 package com.example.learningspring;
 
+import com.example.learningspring.bean.BaseBeanForInjection;
 import com.example.learningspring.bean.BeanWithXml;
 import com.example.learningspring.bean.HelloWorld;
 import com.example.learningspring.bean.TestConfigImportA;
@@ -21,6 +22,8 @@ public class LearningSpringApplication {
         ApplicationContext context = new ClassPathXmlApplicationContext("SpringBeans.xml");
         BeanWithXml firstBean = (BeanWithXml) context.getBean("firstBean");
 //        firstBean.printProperty();
-
+//  inject value
+        BaseBeanForInjection baseBeanForInjection = (BaseBeanForInjection) context.getBean("baseBeanForInjection");
+        baseBeanForInjection.printProperty();
     }
 }

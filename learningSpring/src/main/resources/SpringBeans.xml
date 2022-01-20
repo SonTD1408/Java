@@ -7,7 +7,11 @@
         <property name="thisIsAProperty" value="cô nương"/>
     </bean>
 
-    <bean id="baseBeanForInjection" class="com.example.learningspring.bean.BaseBeanForInjection"/>
+    <bean id="baseBeanForInjection" class="com.example.learningspring.bean.BaseBeanForInjection">
+        <property name="name">
+            <value>dương cô nương</value>
+        </property>
+    </bean>
 
     <bean id="diWithSetter" class="com.example.learningspring.bean.DIWithSetter">
         <property name="baseBeanForInjection">
