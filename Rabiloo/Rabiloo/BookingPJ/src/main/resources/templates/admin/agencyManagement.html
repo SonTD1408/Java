@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en"
+    th:with="currentPage='agencyManagement'">
+<head>
+    <meta charset="UTF-8">
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Title</title>
+    <style>
+        html, body{
+            margin: 0;
+        }
+
+        .header{
+            position: relative;
+        }
+        .profile-tab{
+            position: absolute;
+            top: 48px;
+            right: 0;
+            min-width: 13%;
+            background-color: #ddd;
+        }
+        .profile-tab .profile-sub-tab{
+            padding: 12px 0;
+            text-align: center;
+            cursor: pointer;
+            border: 1px solid #eee;
+        }
+
+        .profile-tab .profile-sub-tab:hover{
+            background-color: #eee;
+        }
+
+        .profile-tab .profile-sub-tab a{
+            text-decoration: none;
+            color: rgb(0,0,238);
+            /* padding: 12px 50px; */
+        }
+
+
+        .header-nav{
+            height: 48px;
+            width: 100%;
+            background-color: #ccc;
+            display: flex;
+        }
+
+        .header-logo{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1.3;
+        }
+        .header-content{
+            flex: 7;
+            background-color: #ddd;
+        }
+
+        .header-list-icon{
+            flex: 2;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .header-icon-i{
+            padding: 4px 18px;
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            color: blue;
+        }
+
+        .header-icon-i:hover{
+            background-color: #ddd;
+            opacity: 0.6;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .body{
+            display: flex;
+            height: 100vh;
+        }
+        .side-bar{
+            background-color: #eee;
+            flex: 1.3;
+            height: 100vh;
+            position: relative;
+        }
+
+        .side-bar .admin-page{
+            position: absolute;
+            width: 90%;
+            right: 0;
+            top: 10vh;
+        }
+
+        .admin-page .side-bar-selector{
+            padding: 16px 8px;
+        }
+
+        .admin-page .side-bar-selector a{
+            color: #000;
+            text-decoration: none;
+        }
+
+        .admin-page .side-bar-selector:hover{
+            background-color: #ccc;
+            cursor: pointer;
+        }
+        .content{
+            flex: 9;
+        }
+
+        .is-select{
+            background-color: #fff;
+            color: blue;
+        }
+
+        .content h1{
+            padding: 24px 64px;
+        }
+
+
+
+
+
+
+
+        table{
+            margin-left: auto;
+            margin-right: auto;
+            border: 1px solid #ccc;
+        }
+
+        th{
+            background-color: #333;
+            color: #fff
+        }
+
+        table, th,td{
+            border: 1px solid #ccc;
+            border-collapse: collapse;
+        }
+
+        th, td{
+            padding: 16px;
+            min-width: 100px;
+        }
+
+        th:last-child{
+            min-width: 150px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <header th:replace="admin/layout/header::header"></header>
+    <div class="body">
+        <div th:replace="admin/layout/sideBar::sideBar(${currentPage})"></div>
+        <div class="content">
+            <div class="content-table" id="table-agency">
+                <h1>Company information </h1>
+                <table>
+                    <thead>
+                    <th>Company id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>User</th>
+                    <th>Password</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let newsVue = new Vue({
+            el: '#table-agency',
+            data: {
+                listAgency: []
+            },
+            method:{
+                loadListAgency(){
+                    let self = this;
+                    $.ajax({
+                        type: "GET",
+                        url: "/api/admin/agencyManagement/getAgency",
+                        success: function (response) {
+                            if (response.status.code === 1000) {
+                                self.listAgency = response.data;
+                            }
+                        }
+                    })
+                }
+            }
+        })
+
+        newsVue.loadListAgency();
+    </script>
+</body>
+</html>
